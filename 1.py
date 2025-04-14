@@ -15,7 +15,7 @@ def check_winner():
         if buttons[0][i]["text"] == buttons[1][i]["text"] == buttons[2][i]["text"] != "":
             return True
 
-    if buttons[0][0]["text"] == buttons[1][1]["text"] == buttons[2][2]["text"] != "":
+if buttons[0][0]["text"] == buttons[1][1]["text"] == buttons[2][2]["text"] != "":
         return True
     if buttons[0][2]["text"] == buttons[1][1]["text"] == buttons[2][0]["text"] != "":
         return True
@@ -43,18 +43,18 @@ def reset_game():
         for button in row:
             button['text'] = ""  # Очищаем текст на кнопках
 
-# Создаем кнопки для игрового поля
-for i in range(3):
-    row = []
-    for j in range(3):
-        btn = tk.Button(window, text="", font=("Arial", 20), width=5, height=2, command=lambda r=i, c=j: on_click(r, c))
-        btn.grid(row=i, column=j)
-        row.append(btn)
-    buttons.append(row)
+            # Создаем кнопки для игрового поля
+            for i in range(3):
+                row = []
+                for j in range(3):
+                    btn = tk.Button(window, text="", font=("Arial", 20), width=5, height=2,
+                                    command=lambda r=i, c=j: on_click(r, c))
+                    btn.grid(row=i, column=j)
+                    row.append(btn)
+                buttons.append(row)
 
-# Создаем кнопку сброса
-reset_button = tk.Button(window, text="Сбросить игру", font=("Arial", 14), command=reset_game)
-reset_button.grid(row=3, column=0, columnspan=3, sticky="nsew")  # Размещаем кнопку сброса
+            # Создаем кнопку сброса
+            reset_button = tk.Button(window, text="Сбросить игру", font=("Arial", 14), command=reset_game)
+            reset_button.grid(row=3, column=0, columnspan=3, sticky="nsew")  # Размещаем кнопку сброса
 
-window.mainloop()
-
+            window.mainloop()
